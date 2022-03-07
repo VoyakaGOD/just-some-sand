@@ -1,0 +1,1 @@
+It's my attempt to create a simple implementation of falling sand game with pygame.
