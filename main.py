@@ -13,6 +13,7 @@ class App:
         brushId = 1
         brushSize = 3
         while isRunning:
+            pg.display.set_caption('just some sand' + str(self.clock.get_fps())) ##########
             game.Update()
             if isMBPressed:
                 mp = pg.mouse.get_pos()
@@ -27,6 +28,7 @@ class App:
                 elif event.type == pg.KEYDOWN:
                     if event.key >= pg.K_0 and event.key <= pg.K_4:
                         brushId = event.key - pg.K_0
+                        print(ELEMENTS[brushId].name)
                 elif event.type == pg.MOUSEWHEEL:
                     brushSize += event.y
                     if brushSize < 0:
@@ -34,7 +36,6 @@ class App:
                     elif brushSize > MAX_BRUSH_SIZE:
                         brushSize = MAX_BRUSH_SIZE
             self.clock.tick(60)
-            print(self.clock.get_fps())
         pg.quit()
 
 if __name__ == '__main__':
